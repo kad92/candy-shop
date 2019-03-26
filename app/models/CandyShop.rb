@@ -1,0 +1,2 @@
+class CandyShop < ApplicationRecord  
+end

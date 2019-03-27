@@ -1,1 +1,12 @@
-CANDY SHOP NEW
+<%= form_with model: @candyShop, local: true do |form| %>
+    <div class="header">
+        <h1>Create Shop</h1>
+    </div>
+    <p>
+        <%= form.label :"Enter name of candy shop" %><br>
+        <%= form.text_field :name %>
+    </p>
+    <div class="btnNext">
+        <%= form.submit "Create your candy shop" %>
+    </div>
+<%end%>

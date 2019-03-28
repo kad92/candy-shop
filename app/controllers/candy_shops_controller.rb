@@ -1,5 +1,6 @@
 class CandyShopsController < ApplicationController
     def index
+        @candyShops = CandyShop.all
     end
     def new 
         @candyShop = CandyShop.new
@@ -15,6 +16,8 @@ class CandyShopsController < ApplicationController
     end
 
     def show
+        @candyShop = CandyShop.find(params[:id]) 
+        @candyShops = CandyShop.all
     end
     private
         def candyShop_params

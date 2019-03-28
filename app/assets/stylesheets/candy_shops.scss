@@ -1,12 +1,23 @@
 // Place all the styles related to the candyShops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header{
+    border-bottom: 1px solid lightgrey;
+}
+.header h1{
+    margin-left:64px;
+    margin-top:20px;
+    font-size:64px;
+    color:brown;    
+}
 .clear{
     clear: both;
 }
 .header-nav{
    float:right;
    margin-right:500px;
+   margin-bottom:5px;
 }
 .navButtons li{
    list-style: none;
@@ -20,4 +31,25 @@
 .navButtons li a{
    color:#ffffff;
    text-decoration: none;
+}
+.dropDown{
+    background-color: white;
+    float:right;
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    margin-top:24px;
+    border: 1px solid lightgrey;
+    width:464px;    
+}
+.info h2{
+    font-size: 34px;
+}
+.info ul{
+    list-style:none;
+}
+.info ul li a{
+    text-decoration: none;
+    color:black;
 }

@@ -4,10 +4,54 @@
 
         <nav class="header-nav">
             <ul class="navButtons">
-                <li><a href="#">Manage Inventory</a></li>
-                <li><a href="#">Manage Shops</a></li>
+                <li>
+                    <a href="#">Manage Inventory</a>
+                    <div class= "dropDown">
+                        <ul>
+                            <li><a href="#">Add a candy</a></li>
+                            <li><a href="#">Add a shelf</a></li>
+                            <li><a href="#">Delete a candy</a></li>
+                            <li><a href="#">Delete a shelf</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Manage Shops</a>
+                    <div class="dropDown">
+                        <ul>
+                            <li><a href="#">Add a shop</a></li>
+                            <li><a href="#">Delete a shop</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="clear"></div>
     </div>
+    <section class="info">
+        <h2>Shops</h2>
+        <ul>
+            <%= @candyShops.find_each do |shop| %>
+                <li><a href="#"><%= shop.name %></a></li>
+            <%end%>
+        </ul>
+        
+        <h2>Inventory</h2>
+        <h3>Total candies</h3>
+        <ul>
+            <li><a href="#">my list of candies</a></li>
+        </ul>
+        <h3>Total Unshelved Candies</h3>
+        <ul>
+            <li><a href="#">my list of candies</a></li>
+        </ul>
+        <h3>Total types of candies</h3>
+        <ul>
+            <li><a href="#">my list of candies</a></li>
+        </ul>
+        <h3>Total Shelved</h3>
+        <ul>
+            <li><a href="#">my list of candies</a></li>
+        </ul>
+    </section>
 </div>

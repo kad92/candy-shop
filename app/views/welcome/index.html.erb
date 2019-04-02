@@ -1,11 +1,35 @@
 <div>
     <div class="header">
-        <h1>Welcome to the Candy Shop</h1>
-        <p>This phenomenal application allows you to create up to a thousand candy shops. 
-        Our new features enhances the management of inventories.</p>
+        <h1>Candy Shop Land</h1>
+        <h2>Current Shop</h2>
+        <p> <%= @candyShops.first.name%> </p>
+
     </div>
-    <div class="btnNext">
-        <%= button_to "Next", new_candy_shop_path, :method => :get %>
+    <nav class="shopNav">
+        <h2>Your Shops</h2>
+        <ul>
+            <%= @candyShops.find_each do |shop| %>
+                <li><a href="#"><%= shop.name %></a></li>
+            <%end%>
+        </ul>
+    </nav>
+    <div class="actionBtns">
+        <h2>Action Buttons</h2>
+        <div>
+            <%= button_to "Create a shop", new_candy_shop_path, :method => :get,class: 'btns' %>
+        </div>
+        <div>
+            <%= button_to "Create a shelf", new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest", :disabled => true %>
+            <% if @candyShops.count < 5%> 
+                <script type="text/javascript">
+                    document.getElementById("btnsTest").disabled = false;
+                </script>
+            <%end%>
+        </div>
+        <div>
+            <%= button_to "Create a candy", new_candy_shop_path, :method => :get,class: 'btns' %>
+        </div>
     </div>
+    <div class="clear"></div>
 </div>
 

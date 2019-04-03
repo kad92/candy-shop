@@ -6,13 +6,22 @@ body{
 }
 .header{
     background-color: lightgrey;
+    margin:0;   
+}
+.headerName{
+    width: 500px;
+    margin-right:0;
+    float:left;
+}
+.headerName h1{
+    color:rgb(107, 9, 9);
     margin:0;
 }
-.header h1{
-    margin:0;
-}
-.header h2{
+.headerName h2{
     font-weight:normal;
+}
+.status{
+    float:right;
 }
 .shopNav{
     float:left;

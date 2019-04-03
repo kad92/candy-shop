@@ -2,54 +2,79 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header{
-    border-bottom: 1px solid lightgrey;
+body{
+    margin:0;
 }
-.header h1{
-    margin-left:64px;
-    margin-top:20px;
-    font-size:64px;
-    color:brown;    
+.header{
+    background-color: lightgrey;
+    margin:0;   
+}
+.headerName{
+    width: 500px;
+    margin-right:0;
+    float:left;
+}
+.headerName h1{
+    color:rgb(107, 9, 9);
+    margin:0;
+}
+.headerName h2{
+    font-weight:normal;
+}
+.status{
+    float:right;
+}
+.shopNav{
+    float:left;
+    margin:20px 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width:240px;
+    min-height:200px;
+    padding:20px;
+}
+.shopNav li{
+    list-style: none;
+}
+.shopNav a{
+    text-decoration: none;
+}
+.actionBtns{
+    float:right;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width:240px;
+    min-height: 200px;
+    padding:20px;
+    margin:20px 20px;
+    text-align: center;
+}
+.btns{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width:200px;
+    height:75px;
+    font-size:18px;
 }
 .clear{
-    clear: both;
+    clear:both;
 }
-.header-nav{
-   float:right;
-   margin-right:500px;
-   margin-bottom:5px;
-}
-.navButtons li{
-   list-style: none;
-   float:left;
-   text-align: center;
-   background-color: #000000;
-   margin-right: 30px;
-   width: 150px;
-   line-height: 60px;
-}
-.navButtons li a{
-   color:#ffffff;
-   text-decoration: none;
-}
-.dropDown{
-    background-color: white;
-    float:right;
+.newMainContent{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin:auto;
+    width:500px;
 }
-.info{
-    margin-top:24px;
-    border: 1px solid lightgrey;
-    width:464px;    
+.newMainContent{
 }
-.info h2{
-    font-size: 34px;
-}
-.info ul{
-    list-style:none;
-}
-.info ul li a{
-    text-decoration: none;
-    color:black;
+.newLabel{
+    font-size: 24px;
 }

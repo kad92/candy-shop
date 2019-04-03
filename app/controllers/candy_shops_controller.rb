@@ -1,6 +1,9 @@
 class CandyShopsController < ApplicationController
+    mattr_accessor :currentShop
+    @@currentShop;
     def index
-        @candyShops = CandyShop.all
+        @candyShops = CandyShop.all;
+       
     end
     def new 
         @candyShop = CandyShop.new

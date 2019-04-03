@@ -1,12 +1,24 @@
 <%= form_with model: @candyShop, local: true do |form| %>
     <div class="header">
-        <h1>Create Shop</h1>
+        <div class="headerName">
+            <h1>Create Candy Shop</h1>
+            <h2>Current Shop</h2>
+            <p><%= @candyShops.first.name%></p>
+        </div>
+        <div class="clear"></div>
     </div>
-    <p>
-        <%= form.label :"Enter name of candy shop" %><br>
-        <%= form.text_field :name %>
-    </p>
-    <div class="btnNext">
-        <%= form.submit "Create your candy shop" %>
+    <div class="newMainContent">
+        <div>
+            <p>
+                <%= form.label :"Enter name of candy shop" %><br>
+            </p>
+            <p>
+                <%= form.text_field :name %>
+            </p>
+        </div>
+        <div>
+            <%= form.submit "Create your candy shop" %>
+        </div>
     </div>
 <%end%>
+

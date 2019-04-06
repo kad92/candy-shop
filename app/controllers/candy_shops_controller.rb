@@ -3,7 +3,13 @@ class CandyShopsController < ApplicationController
     @@currentShop;
     def index
         @candyShops = CandyShop.all;
-       
+        count = @candyShops.length
+        @status = true
+
+        if(count > 0) 
+            @status = false
+        end
+
     end
     def new 
         @candyShop = CandyShop.new

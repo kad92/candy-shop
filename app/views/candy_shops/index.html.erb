@@ -11,13 +11,12 @@
         </div>
         <div class="clear"></div>
     </div>
-    
     <nav class="shopNav">
         <h2>Your Shops</h2>
         <ul>
             <%= @candyShops.find_each do |shop| %>
 	    <li>
-		    <%= link_to shop.name, {:controller => 'candy_shop', :action => 'show', :id => shop.id } %>
+		    <%= link_to shop.name, {:controller => 'candy_shops', :action => 'show', :id => shop.id } %>
 	    </li>
             <%end%>
         </ul>
@@ -28,7 +27,7 @@
             <%= button_to "Create a shop", new_candy_shop_path, :method => :get,class: 'btns' %>
         </div>
         <div>
-            <%= button_to "Create a shelf",new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest"%>
+            <%= button_to "Create a shelf",new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest", :disabled => @status %>
             <% if @candyShops.count < 5%> 
             <%end%>
         </div>

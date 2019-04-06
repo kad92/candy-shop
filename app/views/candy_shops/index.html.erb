@@ -16,7 +16,9 @@
         <h2>Your Shops</h2>
         <ul>
             <%= @candyShops.find_each do |shop| %>
-                <li><a class="shopName"href="#"><%= shop.name %></a></li>
+	    <li>
+		    <%= link_to shop.name, {:controller => 'candy_shop', :action => 'show', :id => shop.id } %>
+	    </li>
             <%end%>
         </ul>
     </nav>

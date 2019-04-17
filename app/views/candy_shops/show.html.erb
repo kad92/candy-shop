@@ -1,65 +1,38 @@
-<style>
-.dropDown ul {
-  display: none;
-}
-.dropDown:hover ul {
-  display: block;
-}
-</style>
-<div class="mainContent">
-    <div class="header">
-        <h1>Manage Shops</h1>
-
-        <nav class="header-nav">
-            <ul class="navButtons">
-                <li>
-                    <div class= "dropDown">
-                        <a href="#">Manage Inventory</a>
-                        <ul>
-                            <li><a href="#">Add a candy</a></li>
-                            <li><a href="#">Add a shelf</a></li>
-                            <li><a href="#">Delete a candy</a></li>
-                            <li><a href="#">Delete a shelf</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropDown">
-                        <a href="#">Manage Shops</a>
-                        <ul>
-                            <li><a href="#">Add a shop</a></li>
-                            <li><a href="#">Delete a shop</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="clear"></div>
-    </div>
-    <section class="info">
-        <h2>Shops</h2>
+<div>
+    <%= render "header" %>
+    <nav class="shopNav">
+        <h2>Your Shops</h2>
+        <div>
+            <%= button_to "New Shop", new_candy_shop_path, :method => :get,
+            class: 'btns' %>
+        </div>
         <ul>
             <%= @candyShops.find_each do |shop| %>
-                <li><a href="#"><%= shop.name %></a></li>
+        <li>
+            <%= link_to shop.name, {:controller => 'candy_shops', :action => 'show', :id => shop.id } %>
+        </li>
             <%end%>
         </ul>
-        
-        <h2>Inventory</h2>
-        <h3>Total candies</h3>
-        <ul>
-            <li><a href="#">my list of candies</a></li>
-        </ul>
-        <h3>Total Unshelved Candies</h3>
-        <ul>
-            <li><a href="#">my list of candies</a></li>
-        </ul>
-        <h3>Total types of candies</h3>
-        <ul>
-            <li><a href="#">my list of candies</a></li>
-        </ul>
-        <h3>Total Shelved</h3>
-        <ul>
-            <li><a href="#">my list of candies</a></li>
-        </ul>
-    </section>
+    </nav>
+    <div class="mainContent">
+        <% if @candyShop != nil %>
+            <h1><%= @candyShop.name %></h1>
+        <% else %>
+            <h1><%= @candyShops.first.name %></h1>
+        <%end%>
+    </div>
+    <div class="actionBtns">
+        <h2>Action Buttons</h2>
+        <div>
+            <%= button_to "Create a shelf",new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest", :disabled => @status %>
+            <% if @candyShops.count < 5%> 
+            <%end%>
+        </div>
+        <div>
+            <%= button_to "Create a candy", new_candy_shop_path, :method => :get,class: 'btns' %>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
+
+

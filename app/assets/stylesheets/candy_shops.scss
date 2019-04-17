@@ -53,14 +53,12 @@ body{
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 20px 32px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    width:200px;
-    height:75px;
+    padding:10px;
     font-size:18px;
 }
 .btns[disabled]{
@@ -72,12 +70,53 @@ body{
 .newMainContent{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin:auto;
     width:500px;
 }
-.newMainContent{
-}
 .newLabel{
     font-size: 24px;
+}
+.shelfSection{
+    float:left;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lightgrey;
+}
+.shelfSection h2{
+    text-align: center;
+    margin:10px;
+}
+.shelfContainer{
+    display:flex;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 150px;
+}
+
+.shelfBox{
+    border: 1px solid blue;
+}
+.unsCandiesSection{
+    float:right;
+    margin-right:20px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lightgrey;
+}
+.unsCandiesSection h2{
+    text-align: center;
+    margin:10px;
+}
+.unsCandiesContainer{
+    display:flex;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 150px;
+}
+.candyBox{
+    border: 1px solid blue;
 }

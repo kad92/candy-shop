@@ -1,6 +1,4 @@
 class CandyShopsController < ApplicationController
-    mattr_accessor :currentShop
-    @@currentShop;
     def index
         @candyShops = CandyShop.all;
         count = @candyShops.length
@@ -28,6 +26,7 @@ class CandyShopsController < ApplicationController
         @candyShop = CandyShop.find(params[:id]) 
         @candyShops = CandyShop.all
     end
+    
     private
         def candyShop_params
             params.require(:candy_shop).permit(:name)

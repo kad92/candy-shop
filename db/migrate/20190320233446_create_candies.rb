@@ -3,7 +3,7 @@ class CreateCandies < ActiveRecord::Migration[5.2]
     create_table :candies do |t|
       t.string :name
       t.integer :qantity
-
+      t.integer :shelf_id
       t.timestamps
     end
   end

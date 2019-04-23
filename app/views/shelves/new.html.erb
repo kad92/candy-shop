@@ -1,2 +1,32 @@
-<h1>Shelves#new</h1>
-<p>Find me in app/views/shelves/new.html.erb</p>
+<%= form_with( model:[@candyShop,@candyShop.shelves.build],local: true) do |form| %>
+
+    <div class="header">
+        <div class="headerName">
+            <h1>Create Shelf</h1>
+            <h2>Current Shop</h2>
+            <p><%= %></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="newShelfMainContent">
+        <div>
+            <p>
+                <%= form.label :"Enter name of shelf" %><br>
+            </p>
+            <p>
+                <%= form.text_field :name %>
+            </p>
+            <p>
+                <%= form.label :"Enter capacity"%>
+            </p>
+            <p>
+            	<%= form.text_field :capacity%>
+            </p>
+            <%=form.hidden_field :quantity,:value => 0 %>
+        </div>
+        <div>
+            <%= form.submit "Create your shelf" %>
+        </div>
+    </div>
+<%end%>
+

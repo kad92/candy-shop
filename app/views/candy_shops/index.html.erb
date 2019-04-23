@@ -9,7 +9,7 @@
         <ul>
             <%= @candyShops.find_each do |shop| %>
 	    <li>
-		    <%= link_to shop.name, {:controller => 'candy_shops', :action => 'show', :id => shop.id } %>
+		    <%= link_to shop.name, shop %>
 	    </li>
             <%end%>
         </ul>
@@ -17,12 +17,20 @@
     <div class="mainContent">
         <% if @candyShop != nil %>  
             <h1><%= @candyShop.name %></h1>
+            <% @currentShopId = @candyShop.id %>
         <% else %>
             <h1><%= @candyShops.first.name %></h1>
+            <% @currentShopId = @candyShops.first.id %>
         <%end%>
 
         <div class="shelfSection">
             <h2>Shelves</h2>
+            <div>
+                <%= button_to "Create a shelf",
+                new_candy_shop_shelf_path(@currentShopId), 
+                :method => :get,class: 'btns', 
+                :id => "btnsTest", :disabled => @status %>
+            </div>
             <div class="shelfContainer">
                 <div class="shelfBox">
                     <h3>Shelf A</h3>
@@ -50,7 +58,7 @@
                     <h3>candy A</h3>
                     <input class="btns" type="button" value="hola"/>
                 </div>
-                <div class="candtBox">
+                <div class="candyBox">
                     <h3>candy A</h3>
                     <input class="btns" type="button" value="hola"/>
                 </div>

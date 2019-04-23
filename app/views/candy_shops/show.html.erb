@@ -9,29 +9,65 @@
         <ul>
             <%= @candyShops.find_each do |shop| %>
         <li>
-            <%= link_to shop.name, {:controller => 'candy_shops', :action => 'show', :id => shop.id } %>
+            <%= link_to shop.name, shop %>
         </li>
             <%end%>
         </ul>
     </nav>
     <div class="mainContent">
-        <% if @candyShop != nil %>
-            <h1><%= @candyShop.name %></h1>
-        <% else %>
-            <h1><%= @candyShops.first.name %></h1>
-        <%end%>
+        <h1><%= @candyShop.name %></h1>
+        <% @currentShopId = @candyShop.id %>
+        <div class="shelfSection">
+            <h2>Shelves</h2>
+            <div>
+                <%= button_to "Create a shelf",
+                new_candy_shop_shelf_path(@currentShopId), 
+                    :method => :get, class: 'btns', :id => "btnsTest", :disabled => @status %>
+            </div>
+            <div class="shelfContainer">
+                <div class="shelfBox">
+                    <h3>Shelf A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+                <div class="shelfBox">
+                    <h3>Shelf A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+                <div class="shelfBox">
+                    <h3>Shelf A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="unsCandiesSection">
+            <h2>Unshelved Candies</h2>
+            <div class="unsCandiesContainer">
+                <div class="candyBox">
+                    <h3>Shelf A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+                <div class="candyBox">
+                    <h3>candy A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+                <div class="candyBox">
+                    <h3>candy A</h3>
+                    <input class="btns" type="button" value="hola"/>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="actionBtns">
+    <!--<div class="actionBtns">
         <h2>Action Buttons</h2>
         <div>
             <%= button_to "Create a shelf",new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest", :disabled => @status %>
-            <% if @candyShops.count < 5%> 
-            <%end%>
         </div>
         <div>
             <%= button_to "Create a candy", new_candy_shop_path, :method => :get,class: 'btns' %>
         </div>
-    </div>
+    </div> -->
     <div class="clear"></div>
 </div>
 

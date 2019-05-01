@@ -4,8 +4,16 @@ class ShelvesController < ApplicationController
   end
   def create
   	@candyShop = CandyShop.find(params[:candy_shop_id])
-  	@shelf = @candyShop.shelves.create(shelf_params)
-  	redirect_to candy_shop_path(@candyShop)
+  	@shelfHash = shelf_params
+  	@shelfObj = Shelf.find_by(name:@shelfHash[:name], candy_shop_id: params[:candy_shop_id])
+  	
+    if @shelfObj == nil
+      @candyShop.shelves.create(shelf_params)
+      redirect_to @candyShop  
+    else
+      render "new"
+    end
+  	
   end
   private
   	def shelf_params

@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_184324) do
+ActiveRecord::Schema.define(version: 2019_05_01_050724) do
 
   create_table "candies", force: :cascade do |t|
     t.string "name"
-    t.integer "qantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "candy_shop_id"
+    t.integer "shelf_id"
+    t.index ["candy_shop_id"], name: "index_candies_on_candy_shop_id"
+    t.index ["shelf_id"], name: "index_candies_on_shelf_id"
   end
 
   create_table "candy_shops", force: :cascade do |t|
@@ -28,6 +31,11 @@ ActiveRecord::Schema.define(version: 2019_03_27_184324) do
   create_table "shelves", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "capacity"
+    t.integer "quantity"
+    t.integer "candy_shop_id"
+    t.index ["candy_shop_id"], name: "index_shelves_on_candy_shop_id"
   end
 
 end

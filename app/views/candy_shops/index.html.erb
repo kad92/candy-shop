@@ -15,66 +15,58 @@
         </ul>
     </nav>
     <div class="mainContent">
-        <% if @candyShop != nil %>  
-            <h1><%= @candyShop.name %></h1>
-            <% @currentShopId = @candyShop.id %>
-        <% else %>
-            <h1><%= @candyShops.first.name %></h1>
-            <% @currentShopId = @candyShops.first.id %>
-        <%end%>
+        <h1><%= @currentShop.name %></h1>
 
         <div class="shelfSection">
             <h2>Shelves</h2>
-            <div>
+            <div class="createShelfBtn">
                 <%= button_to "Create a shelf",
                 new_candy_shop_shelf_path(@currentShopId), 
-                :method => :get,class: 'btns', 
-                :id => "btnsTest", :disabled => @status %>
+                :method => :get, class: 'btns', :disabled => @status %>
             </div>
             <div class="shelfContainer">
-                <div class="shelfBox">
-                    <h3>Shelf A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
-                <div class="shelfBox">
-                    <h3>Shelf A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
-                <div class="shelfBox">
-                    <h3>Shelf A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
+                <% if @currentShop.shelves.count > 0 %>
+                    <%= @currentShop.shelves.find_each do |shelf|%>
+                        <div class="shelfBox">
+                            <h3><%=shelf.name%></h3>
+                            <div class="shelfBtns">
+                                <%= button_to "Edit","#",
+                                class:'btns' %>
+                                <%= button_to "Delete","#",class:'btns deleteBtns'%>   
+                            </div>
+                        </div>
+                    <%end%>
+                <% else %>
+                    <div class="shelfBox">
+                        <h3>Empty</h3>
+                    </div>
+                <%end%>
             </div>
-
         </div>
         <div class="unsCandiesSection">
             <h2>Unshelved Candies</h2>
+            <div class="createCandyBtn">
+                <%= button_to "Create a Candy",
+                new_candy_shop_candy_path(@currentShopId), 
+                :method => :get, class: 'btns', :disabled => @status %>
+            </div>
             <div class="unsCandiesContainer">
-                <div class="candyBox">
-                    <h3>Shelf A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
-                <div class="candyBox">
-                    <h3>candy A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
-                <div class="candyBox">
-                    <h3>candy A</h3>
-                    <input class="btns" type="button" value="hola"/>
-                </div>
+                <% if @unsCandies.count > 0 %> 
+                    <%= @unsCandies.find_each do |uCandies|%>
+                        <div class="candyBox">
+                            <h3><%=uCandies.name%></h3>
+                            <input class="btns" type="button" value="hola"/>
+                        </div>
+                    <%end%>
+                <%else%>
+                    <div class="candyBox">
+                        <h3>Empty</h3>
+                    </div>
+                <%end%>
             </div>
         </div>
         <div class="clear"></div>
     </div>
-    <!--<div class="actionBtns">
-        <h2>Action Buttons</h2>
-        <div>
-            <%= button_to "Create a shelf",new_candy_shop_path, :method => :get,class: 'btns', :id => "btnsTest", :disabled => @status %>
-        </div>
-        <div>
-            <%= button_to "Create a candy", new_candy_shop_path, :method => :get,class: 'btns' %>
-        </div>
-    </div> -->
     <div class="clear"></div>
 </div>
 

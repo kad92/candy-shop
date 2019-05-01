@@ -1,0 +1,28 @@
+<%= form_with( model:[@candyShop,@candyShop.candies.build],local: true) do |form| %>
+	
+	<div class="header">
+        <div class="headerName">
+            <h1>Create Candy</h1>
+            <h2>Current Shop</h2>
+            <p><%= %></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="newCandyMainContent">
+    	<p>
+    		<%= form.label :"Enter name of Candy"%>		
+    	</p>
+    	<p>
+    		<%= form.text_field :name%>
+    	</p>
+    	<p>
+    		<%= form.label :"Enter quantity"%>		
+    	</p>
+    	<p>
+    		<%= form.text_field :quantity%>
+    	</p>
+    	<div>
+    		<%=form.submit "Create candy"%>
+    	</div>
+    </div>
+<%end%>

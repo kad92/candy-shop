@@ -1,13 +1,25 @@
 class CandyShopsController < ApplicationController
     def index
-        @candyShops = CandyShop.all;
+        @candyShops = CandyShop.all
         count = @candyShops.length
         @status = true
-
+        
         if(count > 0) 
             @status = false
         end
+        
+        @currentShop = nil
+        @currentShopId = nil
 
+        if @candyShop != nil
+            @currentShop = @candyShop
+            @currentShopId = @candyShop.id    
+        else
+            @currentShop = @candyShops.first
+            @currentShopId = @candyShops.first.id
+        end 
+
+        @unsCandies = Candy.joins(:candy_shop).where(shelf_id: nil).where(:candy_shops => {:id => @currentShopId}).all
     end
     def new 
         @candyShop = CandyShop.new
@@ -23,8 +35,11 @@ class CandyShopsController < ApplicationController
     end
 
     def show
-        @candyShop = CandyShop.find(params[:id]) 
+         
         @candyShops = CandyShop.all
+        @currentShop =CandyShop.find(params[:id])
+        @currentShopId = @currentShop.id
+        @unsCandies = Candy.joins(:candy_shop).where(shelf_id: nil).where(:candy_shops => {:id => @currentShopId}).all
     end
     
     private

@@ -21,13 +21,13 @@ body{
 .headerName h2{
     font-weight:normal;
 }
-.status{
-    float:right;
-}
+
 .shopNav{
     float:left;
     margin:20px 20px;
     border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lightgrey;
     border-radius: 10px;
     width:240px;
     min-height:200px;
@@ -55,7 +55,6 @@ body{
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     padding:10px;
@@ -63,6 +62,9 @@ body{
 }
 .btns[disabled]{
   background-color:grey;
+}
+.deleteBtns{
+    background-color: orange;
 }
 .clear{
     clear:both;
@@ -81,23 +83,38 @@ body{
 .shelfSection{
     float:left;
     border: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 2px 2px 2px lightgrey;
 }
 .shelfSection h2{
     text-align: center;
     margin:10px;
 }
+.createShelfBtn{
+    text-align: center;
+}
 .shelfContainer{
     display:flex;
-    border: 1px solid black;
     flex-wrap: wrap;
     flex-direction: row;
-    max-width: 150px;
+    max-width: 620px;
 }
+.shelfBtns{
+    text-align: center;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top:150px;
 
-.shelfBox{
-    border: 1px solid blue;
+}
+.shelfBox,.candyBox{
+    margin:5px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    max-width: 650px;
+}
+.shelfBox h3{
+    text-align: center;
 }
 .unsCandiesSection{
     float:right;
@@ -117,6 +134,4 @@ body{
     flex-direction: row;
     max-width: 150px;
 }
-.candyBox{
-    border: 1px solid blue;
-}
+
